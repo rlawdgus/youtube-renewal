@@ -1,0 +1,40 @@
+$brand-color: #ff0000;
+$disable-color: #dbdbdb;
+
+$box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.16);
+
+$level-modal: 5000;
+$level-dim: 4999;
+
+//base 12
+$fs8: 0.6667rem;
+$fs9: 0.75rem;
+$fs10: 0.8333rem;
+$fs11: 0.9167rem;
+$fs12: 1rem;
+$fs13: 1.083rem;
+$fs14: 1.167rem;
+$fs15: 1.25rem;
+$fs16: 1.333rem;
+$fs17: 1.417rem;
+$fs18: 1.5rem;
+$fs19: 1.583rem;
+$fs20: 1.667rem;
+$fs22: 1.833rem;
+$fs24: 2rem;
+$fs26: 2.167rem;
+$fs28: 2.333rem;
+$fs30: 2.5rem;
+$fs32: 2.667rem;
+$fs34: 2.833rem;
+$fs36: 3rem;
+$fs38: 3.167rem;
+$fs40: 3.333rem;
+
+@mixin container {
+    max-width: 1920px;
+    min-width: 320px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+}
