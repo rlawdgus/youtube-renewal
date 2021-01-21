@@ -1,0 +1,12 @@
+@import "../../lib/root.scss";
+
+.nav {
+    @include container();
+    background-color: #1e1e1e;
+    color: #707070;
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+    padding-right: 40px;
+    box-shadow: $box-shadow;
+}

@@ -1,0 +1,78 @@
+@import "../../lib/root.scss";
+
+.card {
+  width: 100%;
+  height: 0;
+  padding-bottom: 85%;
+  background-color: #2e2e2e;
+  box-shadow: $box-shadow;
+
+  .thumb-wrapper {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56%;
+    overflow: hidden;
+
+    & > a {
+      & > img {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 100%;
+      }
+
+      .running-time {
+        font-size: $fs8;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 0 7px;
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+      }
+    }
+  }
+
+  .title-wrapper {
+    display: flex;
+    margin-top: 12px;
+    color: #747474;
+
+    .profile {
+      align-self: top;
+      transform-origin: top left;
+      // transform: scale(0.7);
+      margin-left: 5px;
+    }
+
+    .title-area {
+      width: 100%;
+      margin: 0 20px;
+      padding-bottom: 10%;
+
+      & > a {
+        .title {
+          font-size: $fs16;
+          font-weight: bold;
+          color: #efefef;
+          margin-bottom: 4px;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          word-break: break-all;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .channel-name {
+          font-size: $fs14;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+}

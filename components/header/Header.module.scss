@@ -1,0 +1,26 @@
+@import "../../lib/root.scss";
+
+.header {
+    @include container();
+    text-align: center;
+    background-color: #171717;
+    color: #d6d6d6;
+    box-shadow: $box-shadow;
+    height: 44px;
+
+    & > a {
+        font-size: $fs30;
+
+        .logo {
+            display: inline-block;
+            width: 44px;
+            height: 100%;
+            margin-right: 10px;
+
+            & > img {
+                width: 100%;
+                transform: translateY(10%);
+            }
+        }
+    }
+}
