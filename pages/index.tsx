@@ -27,10 +27,8 @@ const Index: React.FC = () => {
     }, []);
 
     useEffect(() => {
-        callGetRecentlyVideos();
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+        callGetRecentlyVideos(), [];
+    });
 
     const [search, onChangeSearch] = useInput("");
 
