@@ -4,7 +4,6 @@ export interface Video {
     thumbnail: string;
     duration: string;
     channelId: string;
-    channelProfile?: string;
     channelTitle: string;
     viewCount: string;
     publishedAt: string;

@@ -49,7 +49,6 @@ const RecentlySwiper: React.FC<RecentlySwiperProps> = ({ recentlyVideos }) => {
                             thumbnail: item.snippet.thumbnails.standard.url,
                             duration: item.contentDetails.duration,
                             channelId: item.snippet.channelId,
-                            channelProfile: "",
                             channelTitle: item.snippet.channelTitle,
                             viewCount: item.statistics.viewCount,
                             publishedAt: item.snippet.publishedAt,
