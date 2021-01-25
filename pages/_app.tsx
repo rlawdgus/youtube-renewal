@@ -1,14 +1,28 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { applyMiddleware, createStore } from "redux";
+import { Provider } from "react-redux";
+import createSagaMiddleware from "redux-saga";
+import { composeWithDevTools } from "redux-devtools-extension";
 
-import Header from '../components/header/Header'
-import Nav from '../components/nav/Nav'
+import rootReducer, { rootSaga } from "../store";
 
-import '../public/reset.scss'
+import Header from "../components/header/Header";
+import Nav from "../components/nav/Nav";
+
+import "../public/reset.scss";
 import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
 
-const App = ({ Component, pageProps }: AppProps) => {
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(
+    rootReducer,
+    composeWithDevTools(applyMiddleware(sagaMiddleware))
+);
+
+sagaMiddleware.run(rootSaga);
+
+const YoutubeRenewal = ({ Component, pageProps }: AppProps) => {
     return (
         <>
             <Head>
@@ -19,9 +33,11 @@ const App = ({ Component, pageProps }: AppProps) => {
             </Head>
             <Header name={"YouTube"} logo={"logo734.png"} />
             <Nav />
-            <Component {...pageProps} />
+            <Provider store={store}>
+                <Component {...pageProps} />
+            </Provider>
         </>
     );
 };
 
-export default App;
+export default YoutubeRenewal;

@@ -1,0 +1,29 @@
+.card-wrapper {
+    width: 19%;
+    margin-bottom: 1%;
+}
+
+@media (max-width: 1600px) {
+    .card-wrapper {
+        width: 24%;
+    }
+}
+
+@media (max-width: 1366px) {
+    .card-wrapper {
+        width: 33%;
+    }
+}
+
+@media (max-width: 1250px) {
+    .card-wrapper {
+        width: 49%;
+    }
+}
+
+@media (max-width: 800px) {
+    .card-wrapper {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

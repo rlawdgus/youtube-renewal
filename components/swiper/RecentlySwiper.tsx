@@ -14,7 +14,7 @@ const cx = classnames.bind(styles);
 SwiperCore.use([Navigation]);
 
 interface RecentlySwiperProps {
-    recentlyVideos: any[] | undefined;
+    recentlyVideos: any[];
 }
 
 const RecentlySwiper: React.FC<RecentlySwiperProps> = ({ recentlyVideos }) => {
@@ -46,7 +46,7 @@ const RecentlySwiper: React.FC<RecentlySwiperProps> = ({ recentlyVideos }) => {
                         const video: Video = {
                             id: item.id,
                             title: item.snippet.title,
-                            thumbnail: item.snippet.thumbnails.standard.url,
+                            thumbnail: item.snippet.thumbnails.high.url,
                             duration: item.contentDetails.duration,
                             channelId: item.snippet.channelId,
                             channelTitle: item.snippet.channelTitle,

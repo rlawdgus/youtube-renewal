@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import { NextPage } from "next";
 
 import { getRecentlyVideos } from "../api/youtube";
 
@@ -6,45 +6,35 @@ import useInput from "../hooks/useInput";
 
 import RecentlySwiper from "../components/swiper/RecentlySwiper";
 import InputBox from "../components/input/InputBox";
+import VideoList from "../components/list/VideoList";
 
-const Index: React.FC = () => {
-    const [recentlyVideos, setRecentlyVideos] = useState<any[] | undefined>();
-
-    const callGetRecentlyVideos = useCallback(async () => {
-        //loading-on
-        try {
-            const response = await getRecentlyVideos();
-
-            if (response.status === 200) {
-                setRecentlyVideos(response.data.items);
-            } else {
-                //failure
-            }
-        } catch (e) {
-            console.log(e);
-        }
-        //loading-off
-    }, []);
-
-    useEffect(() => {
-        callGetRecentlyVideos(), [];
-    });
-
+const Index: NextPage<any> = ({ data }) => {
+    console.log(data);
     const [search, onChangeSearch] = useInput("");
 
     return (
         <>
-            <main className="main">
-                <RecentlySwiper recentlyVideos={recentlyVideos} />
+            <section className="genre">
+                <RecentlySwiper recentlyVideos={data.items} />
 
                 <InputBox
                     value={search}
                     onChange={onChangeSearch}
                     placeholder={"검색"}
                 />
+            </section>
+            <main>
+                <VideoList videoList={data.items} />
             </main>
         </>
     );
+};
+
+Index.getInitialProps = async () => {
+    const response = await getRecentlyVideos();
+    const { data } = response;
+
+    return { data };
 };
 
 export default Index;

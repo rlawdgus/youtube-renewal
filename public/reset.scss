@@ -107,7 +107,7 @@ ol {
     list-style: none;
 }
 
-.main {
+.genre {
     background-color: #232323;
     padding-bottom: 40px;
 }
@@ -142,4 +142,11 @@ ol {
             z-index: 2;
         }
     }
+}
+
+main {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 100px;
+    justify-content: space-between;
 }
