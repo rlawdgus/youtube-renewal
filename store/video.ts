@@ -7,11 +7,17 @@ const GET_VIDEO = "video/GET_VIDEO" as const;
 const GET_VIDEO_SUCCESS = "video/GET_VIDEO_SUCCESS" as const;
 const GET_VIDEO_FAILURE = "video/GET_VIDEO_FAILURE" as const;
 
-const getVideo = createAction(GET_VIDEO, () => undefined);
+const INIT_VIDEO = "video/INIT_VIDEO" as const;
+const INIT_VIDEO_SUCCESS = "video/INIT_VIDEO_SUCCESS" as const;
+const INIT_VIDEO_FAILURE = "video/INIT_VIDEO_FAILURE" as const;
 
-type VideoAction = ReturnType<typeof getVideo>;
+export const getVideo = createAction(GET_VIDEO, () => undefined);
+export const initVideo = createAction(INIT_VIDEO, (list: any) => list);
 
-function* getVideoSaga() {
+type VideoAction = ReturnType<typeof getVideo> | ReturnType<typeof initVideo>;
+
+function* getVideoSaga(action: VideoAction) {
+    console.log(action);
     //yield loading
     try {
         const response = yield call(getRecentlyVideos);
@@ -21,13 +27,24 @@ function* getVideoSaga() {
             yield put({ type: GET_VIDEO_SUCCESS, payload: data });
         }
     } catch (e) {
-        yield put({ type: GET_VIDEO_FAILURE, payload: e });
+        yield put({ type: GET_VIDEO_FAILURE, payload: e, error: true });
+    }
+    //yield loading
+}
+
+function* initVideoSaga(action: VideoAction) {
+    //yield loading
+    try {
+        yield put({ type: INIT_VIDEO_SUCCESS, payload: action.payload });
+    } catch (e) {
+        yield put({ type: INIT_VIDEO_FAILURE, payload: e, error: true });
     }
     //yield loading
 }
 
 export function* videoSaga() {
     yield takeLatest(GET_VIDEO, getVideoSaga);
+    yield takeLatest(INIT_VIDEO, initVideoSaga);
 }
 
 const initState: any[] = [];
@@ -36,6 +53,10 @@ const video = handleActions(
     {
         [GET_VIDEO_SUCCESS]: (state: any, action: VideoAction) => ({
             ...state,
+            ...action.payload,
+        }),
+        [INIT_VIDEO_SUCCESS]: (state: any, action: VideoAction) => ({
+            state,
             ...action.payload,
         }),
     },

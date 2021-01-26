@@ -1,4 +1,7 @@
 import { NextPage } from "next";
+import { useSelector, useDispatch } from "react-redux";
+
+import { initVideo } from "../store/video";
 
 import { getRecentlyVideos } from "../api/youtube";
 
@@ -7,13 +10,20 @@ import useInput from "../hooks/useInput";
 import RecentlySwiper from "../components/swiper/RecentlySwiper";
 import InputBox from "../components/input/InputBox";
 import VideoList from "../components/list/VideoList";
+import { useEffect } from "react";
 
 const Index: NextPage<any> = ({ data }) => {
-    console.log(data);
+    const videoList = useSelector((state: any) => state.video);
+    const dispatch = useDispatch();
     const [search, onChangeSearch] = useInput("");
+
+    useEffect(() => {
+        dispatch(initVideo(data.items));
+    }, []);
 
     return (
         <>
+            {console.log(videoList)}
             <section className="genre">
                 <RecentlySwiper recentlyVideos={data.items} />
 
