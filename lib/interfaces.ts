@@ -18,3 +18,8 @@ export interface InputAttribute {
     onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
     readOnly?: boolean;
 }
+
+export interface VideoCategory {
+    id: string;
+    name: string;
+}
