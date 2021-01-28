@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 
+import Nav from "../nav/Nav";
+
 import Path from "../../path";
 
 import styles from "./Header.module.scss";
@@ -16,14 +18,17 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ name, logo }) => {
     return (
         <header className={cx("header")}>
-            <Link href={`${Path.main.index}`}>
-                <a>
-                    <div className={cx("logo")}>
-                        <img src={`/${logo}`} alt="" />
-                    </div>
-                    {name}
-                </a>
-            </Link>
+            <div className={cx("logo-container")}>
+                <Link href={`${Path.main.index}`}>
+                    <a>
+                        <div className={cx("logo")}>
+                            <img src={`/${logo}`} alt="" />
+                        </div>
+                        {name}
+                    </a>
+                </Link>
+            </div>
+            <Nav />
         </header>
     );
 };

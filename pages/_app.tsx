@@ -8,7 +8,6 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import rootReducer, { rootSaga } from "../store";
 
 import Header from "../components/header/Header";
-import Nav from "../components/nav/Nav";
 
 import "../public/reset.scss";
 import "swiper/swiper.scss";
@@ -44,7 +43,6 @@ const YoutubeRenewal = ({ Component, pageProps }: AppProps) => {
                 <link rel="manifest" href="/manifest.json" />
             </Head>
             <Header name={"YouTube"} logo={"logo734.png"} />
-            <Nav />
             <Component {...pageProps} />
         </>
     );

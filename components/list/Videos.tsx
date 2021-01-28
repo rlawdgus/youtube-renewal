@@ -29,7 +29,7 @@ const Videos: React.FC<VideosProps> = ({ videos }) => {
                 };
 
                 return (
-                    <div className={cx("card-wrapper")}>
+                    <div className={cx("card-wrapper")} key={item.id}>
                         <Card video={video} />
                     </div>
                 );

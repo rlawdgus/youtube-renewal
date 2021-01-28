@@ -17,17 +17,15 @@ const InputBox: React.FC<InputAttribute> = ({
     readOnly,
 }) => {
     return (
-        <div className={cx("input-wrapper")}>
-            <input
-                className={cx(`${className}`)}
-                type={type}
-                value={value}
-                placeholder={placeholder}
-                onChange={onChange}
-                onKeyDown={onKeyDown}
-                readOnly={readOnly}
-            />
-        </div>
+        <input
+            className={cx(`${className}`)}
+            type={type}
+            value={value}
+            placeholder={placeholder}
+            onChange={onChange}
+            onKeyDown={onKeyDown}
+            readOnly={readOnly}
+        />
     );
 };
 
