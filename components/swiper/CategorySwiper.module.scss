@@ -1,0 +1,15 @@
+@import "../../lib/root.scss";
+
+.category-wrapper {
+    background-color: #232323;
+    padding-bottom: 40px;
+
+    .category {
+        padding-top: 40px;
+        margin: 0 auto 20px;
+        font-size: $fs24;
+        color: #dedede;
+        text-align: center;
+        font-size: $fs24;
+    }
+}

@@ -107,11 +107,6 @@ ol {
     list-style: none;
 }
 
-.genre {
-    background-color: #232323;
-    padding-bottom: 40px;
-}
-
 .swiper-container {
     width: 100%;
 
@@ -142,11 +137,4 @@ ol {
             z-index: 2;
         }
     }
-}
-
-main {
-    display: flex;
-    flex-flow: row wrap;
-    margin-top: 100px;
-    justify-content: space-between;
 }

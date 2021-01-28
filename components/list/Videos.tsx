@@ -4,19 +4,19 @@ import Card from "../card/Card";
 
 import { Video } from "../../lib/interfaces";
 
-import style from "./VideoList.module.scss";
+import style from "./Videos.module.scss";
 import classnames from "classnames/bind";
 
 const cx = classnames.bind(style);
 
-interface VideoListProps {
-    videoList: any[];
+interface VideosProps {
+    videos: any[];
 }
 
-const VideoList: React.FC<VideoListProps> = ({ videoList }) => {
+const Videos: React.FC<VideosProps> = ({ videos }) => {
     return (
-        <>
-            {videoList.map((item: any) => {
+        <main className={cx("main")}>
+            {videos.map((item: any) => {
                 const video: Video = {
                     id: item.id,
                     title: item.snippet.title,
@@ -34,8 +34,8 @@ const VideoList: React.FC<VideoListProps> = ({ videoList }) => {
                     </div>
                 );
             })}
-        </>
+        </main>
     );
 };
 
-export default VideoList;
+export default Videos;
