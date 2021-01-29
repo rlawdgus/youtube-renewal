@@ -8,6 +8,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import rootReducer, { rootSaga } from "../store";
 
 import Header from "../components/header/Header";
+import Dialog from "../components/dialog/Dialog";
 
 import "../public/reset.scss";
 import "swiper/swiper.scss";
@@ -44,6 +45,7 @@ const YoutubeRenewal = ({ Component, pageProps }: AppProps) => {
             </Head>
             <Header name={"YouTube"} logo={"logo734.png"} />
             <Component {...pageProps} />
+            <Dialog />
         </>
     );
 };

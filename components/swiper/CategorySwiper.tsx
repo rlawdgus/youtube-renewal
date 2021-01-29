@@ -2,6 +2,8 @@ import React from "react";
 
 import Card from "../card/Card";
 
+import useDialog from '../../hooks/useDialog'
+
 import { Video } from "../../lib/interfaces";
 
 import styles from "./CategorySwiper.module.scss";
@@ -17,9 +19,12 @@ interface CategorySwiperProps {
 }
 
 const CategorySwiper: React.FC<CategorySwiperProps> = ({ videos }) => {
+    const openDialog = useDialog()
+    const testDialog = () => {openDialog('test', 'test')}
+
     return (
         <section className={cx("category-wrapper")}>
-            <p className={cx("category")}>Category</p>
+            <p className={cx("category")} onClick={testDialog} >Category</p>
             <Swiper
                 navigation
                 slidesPerView={5}

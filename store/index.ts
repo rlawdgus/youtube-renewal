@@ -1,7 +1,9 @@
 import { combineReducers } from "redux";
 import { all } from "@redux-saga/core/effects";
+import dialog from './dialog'
 
 const rootReducer = combineReducers({
+    dialog
 });
 
 export function* rootSaga() {
