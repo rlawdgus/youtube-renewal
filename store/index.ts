@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
 import { all } from "@redux-saga/core/effects";
-import dialog from './dialog'
+import videos from "./videos";
+import dialog from "./dialog";
 
 const rootReducer = combineReducers({
-    dialog
+    videos,
+    dialog,
 });
 
 export function* rootSaga() {

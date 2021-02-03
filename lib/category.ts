@@ -1,6 +1,6 @@
 import { VideoCategory } from "./interfaces";
 
-const catagory: VideoCategory[] = [
+const catagoryList: VideoCategory[] = [
     { id: "1", name: "Film & Animation" },
     { id: "2", name: "Autos & Vehicles" },
     { id: "10", name: "Music" },
@@ -35,4 +35,4 @@ const catagory: VideoCategory[] = [
     { id: "44", name: "Trailers" },
 ];
 
-export default catagory;
+export default catagoryList;
