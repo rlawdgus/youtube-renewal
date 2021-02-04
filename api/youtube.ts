@@ -16,7 +16,6 @@ export const getRecentlyVideos = async () => {
     };
 
     const response = await axios.get(URL, config);
-    console.log("getRecentlyVideos");
 
     return response;
 };
@@ -32,7 +31,6 @@ export const getProfilePicture = async (channelID: string) => {
     };
 
     const response = await axios.get(URL, config);
-    console.log("getProfilePicture");
 
     return response;
 };

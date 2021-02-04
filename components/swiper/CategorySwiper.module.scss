@@ -5,10 +5,20 @@
     padding: 140px 0 40px;
 
     .category {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
         margin: 0 auto 20px;
+        padding: 10px 20px;
         font-size: $fs24;
         color: #dedede;
-        text-align: center;
         font-size: $fs24;
+        transition: background-color .3s ease-in-out;
+        border: 1px solid #232323;
+    }
+
+    .category:hover {
+        background-color: #171717;
+        border: 1px solid #171717;
     }
 }
