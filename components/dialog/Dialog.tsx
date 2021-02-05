@@ -12,9 +12,7 @@ import Fade from "@material-ui/core/Fade";
 const cx = classnames.bind(style);
 
 const Dialog: React.FC = () => {
-    const dialog = useSelector(
-        (state: any) => state.dialog
-    );
+    const dialog = useSelector((state: any) => state.dialog);
     const dispatch = useDispatch();
 
     const onClose = () => {
@@ -36,7 +34,9 @@ const Dialog: React.FC = () => {
             <Fade in={dialog.open}>
                 <div className={cx("modal-wrapper")}>
                     <h2 id="transition-modal-title">{dialog.title}</h2>
-                    <p id="transition-modal-description">{dialog.description}</p>
+                    <p id="transition-modal-description">
+                        {dialog.description}
+                    </p>
                 </div>
             </Fade>
         </Modal>

@@ -2,9 +2,12 @@ import { createAction, handleActions } from "redux-actions";
 
 const UPDATE_CATEGORY = "category/UPDATE_CATEGORY" as const;
 
-export const updateCategory = createAction(UPDATE_CATEGORY, (category: number) => ({
-    category,
-}));
+export const updateCategory = createAction(
+    UPDATE_CATEGORY,
+    (category: number) => ({
+        category,
+    })
+);
 
 type CategoryActions = ReturnType<typeof updateCategory>;
 
@@ -26,4 +29,4 @@ const category = handleActions(
     initialState
 );
 
-export default category
+export default category;
