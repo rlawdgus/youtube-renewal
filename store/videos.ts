@@ -7,16 +7,18 @@ export const storeVideo = createAction(STORE_VIDEO, (videos: any[]) => videos);
 type VideoAction = ReturnType<typeof storeVideo>;
 
 interface VideoState {
-    videos: any;
+    videos: any[];
 }
 
-const initialState: VideoState[] = [];
+const initialState: VideoState = {
+    videos: [],
+};
 
 const videos = handleActions(
     {
-        [STORE_VIDEO]: (state: VideoState[], action: VideoAction) => ({
+        [STORE_VIDEO]: (state: VideoState, action: VideoAction) => ({
             ...state,
-            ...action.payload,
+            videos: action.payload,
         }),
     },
     initialState

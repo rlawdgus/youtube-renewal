@@ -35,7 +35,7 @@ const CategorySwiper: React.FC<CategorySwiperProps> = ({
         <section className={cx("category-wrapper")}>
             <ButtonBase className={cx("category")} onClick={testDialog}>
                 {videos.length === 0
-                    ? `No filtered in ${categoryList[category].name}`
+                    ? `Not filtered to ${categoryList[category].name}`
                     : `${categoryList[category].name}`}
             </ButtonBase>
             <Swiper
