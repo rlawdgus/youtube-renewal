@@ -11,10 +11,10 @@ import categoryList from "../lib/category";
 import CategorySwiper from "../components/swiper/CategorySwiper";
 import Videos from "../components/list/Videos";
 
-const Index: NextPage<any> = ({ data }) => {
+const Index: NextPage<any> = ({ data, initCategory }) => {
     const dispatch = useDispatch();
     const videos = useSelector((state: any) => state.videos.videos);
-    const category = useSelector((state: any) => state.category.category);
+    const [category, setCategory] = useState<number>(initCategory)
     const [categoryVideos, setCategoryVideos] = useState<any[]>(
         data.items.filter(
             (item: any) => item.snippet.categoryId === categoryList[category].id
@@ -48,7 +48,9 @@ Index.getInitialProps = async () => {
     const response = await getRecentlyVideos();
     const { data } = response;
 
-    return { data };
+    const initCategory: number = Math.floor(Math.random() * 32)
+
+    return { data, initCategory };
 };
 
 export default Index;
