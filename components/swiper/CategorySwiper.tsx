@@ -3,8 +3,6 @@ import React from "react";
 import Card from "../card/Card";
 import CardSkeleton from "../card/CardSkeleton";
 
-import useDialog from "../../hooks/useDialog";
-
 import { Video } from "../../lib/interfaces";
 import categoryList from "../../lib/category";
 
@@ -20,20 +18,17 @@ SwiperCore.use([Navigation]);
 interface CategorySwiperProps {
     videos: any[];
     category: number;
+    setCategory: Function;
 }
 
 const CategorySwiper: React.FC<CategorySwiperProps> = ({
     videos,
     category,
+    setCategory,
 }) => {
-    const openDialog = useDialog();
-    const testDialog = () => {
-        openDialog("test", "test");
-    };
-
     return (
         <section className={cx("category-wrapper")}>
-            <ButtonBase className={cx("category")} onClick={testDialog}>
+            <ButtonBase className={cx("category")}>
                 {videos.length === 0
                     ? `Not filtered to ${categoryList[category].name}`
                     : `${categoryList[category].name}`}
