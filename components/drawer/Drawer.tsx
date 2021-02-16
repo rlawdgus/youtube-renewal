@@ -24,7 +24,7 @@ const Drawer: React.FC = () => {
             return;
         }
 
-        setDrawer(true);
+        setDrawer(open);
     };
 
     return (
