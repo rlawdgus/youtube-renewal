@@ -1,3 +1,6 @@
+import { SvgIconProps } from "@material-ui/core";
+import { SvgIconComponent } from "@material-ui/icons";
+
 export interface Video {
     id: string;
     title: string;
@@ -22,4 +25,5 @@ export interface InputAttribute {
 export interface VideoCategory {
     id: string;
     name: string;
+    icon: SvgIconComponent;
 }
