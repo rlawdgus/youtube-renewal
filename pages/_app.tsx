@@ -9,7 +9,6 @@ import rootReducer, { rootSaga } from "../store";
 
 import Header from "../components/header/Header";
 import Dialog from "../components/dialog/Dialog";
-import Drawer from "../components/drawer/Drawer";
 
 import "../public/reset.scss";
 import "swiper/swiper.scss";
@@ -47,7 +46,6 @@ const YoutubeRenewal = ({ Component, pageProps }: AppProps) => {
             <Header name={"YouTube"} logo={"logo734.png"} />
             <Component {...pageProps} />
             <Dialog />
-            <Drawer />
         </>
     );
 };

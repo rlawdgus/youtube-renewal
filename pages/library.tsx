@@ -1,6 +1,6 @@
-import React from "react";
+import { NextPage } from "next";
 
-const Library: React.FC = () => {
+const Library: NextPage = () => {
     return <>Library Page</>;
 };
 

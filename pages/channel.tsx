@@ -1,6 +1,6 @@
-import React from "react";
+import { NextPage } from "next";
 
-const Channel: React.FC = () => {
+const Channel: NextPage = () => {
     return <>Channel Page</>;
 };
 

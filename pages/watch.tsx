@@ -1,6 +1,6 @@
-import React from "react";
+import { NextPage } from "next";
 
-const Watch: React.FC = () => {
+const Watch: NextPage = () => {
     return <>Watch Page</>;
 };
 

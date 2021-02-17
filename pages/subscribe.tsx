@@ -1,6 +1,6 @@
-import React from "react";
+import { NextPage } from "next";
 
-const Subscribe: React.FC = () => {
+const Subscribe: NextPage = () => {
     return <>Subscribe Page</>;
 };
 

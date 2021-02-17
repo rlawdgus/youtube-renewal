@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import Nav from "../nav/Nav";
+import Nav from "./Nav";
 
 import Path from "../../path";
 
