@@ -25,5 +25,4 @@ export interface InputAttribute {
 export interface VideoCategory {
     id: string;
     name: string;
-    icon: SvgIconComponent;
 }

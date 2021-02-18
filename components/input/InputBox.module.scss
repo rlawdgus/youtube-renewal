@@ -3,8 +3,7 @@
 .box {
     width: 500px;
     height: 35px;
-    color: #858585;
-    background-color: #1c1c1c;
-    border: 1px solid #484848;
+    background-color: $background-search;
+    border: 1px solid $border-search;
     padding: 0 14px;
 }

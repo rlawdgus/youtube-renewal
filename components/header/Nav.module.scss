@@ -2,8 +2,7 @@
 
 .nav {
     @include container();
-    background-color: #1e1e1e;
-    color: #707070;
+    background-color: $background-nav;
     height: 50px;
     line-height: 40px;
     box-shadow: $box-shadow;

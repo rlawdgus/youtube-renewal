@@ -9,8 +9,8 @@
     .logo-container {
         @include container();
         text-align: center;
-        background-color: #171717;
-        color: #d6d6d6;
+        background-color: $background-header;
+        color: $font-white;
         box-shadow: $box-shadow;
         height: 44px;
 
