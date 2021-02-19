@@ -3,7 +3,7 @@
 .card {
     width: 375px;
     position: relative;
-    display: block;
+    display: inline-block;
     box-shadow: $box-shadow;
 
     .thumbnail {
