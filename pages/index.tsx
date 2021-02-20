@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import CategoryDrawer from "../components/list/CategoryDrawer";
 import Card from "../components/card/Card";
+import CardSkeleton from '../components/card/CardSkeleton'
 
 import { categoryListIndex } from "../lib/category";
 
@@ -15,6 +16,7 @@ const Index: NextPage<any> = ({ initCategory, data }) => {
         <>
             <CategoryDrawer category={category} setCategory={setCategory} />
             <Card thumbnail={data.items[0].snippet.thumbnails.high.url} />
+            <CardSkeleton />
         </>
     );
 };
