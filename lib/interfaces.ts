@@ -19,7 +19,7 @@ export interface InputAttribute {
     readOnly?: boolean;
 }
 
-export interface VideoCategory {
+export interface categoryItem {
     id: string;
     name: string;
 }

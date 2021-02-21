@@ -106,35 +106,3 @@ ul,
 ol {
     list-style: none;
 }
-
-.swiper-container {
-    width: 100%;
-
-    .swiper-button-prev,
-    .swiper-button-next {
-        color: #dedede;
-        top: 50%;
-    }
-
-    .swiper-wrapper {
-        box-sizing: border-box;
-
-        .swiper-slide {
-            transform-origin: center center;
-            transition: transform 0.3s ease-in-out;
-            transform: scale(0.7);
-            overflow-y: visible;
-        }
-
-        .swiper-slide-active {
-            transform: scale(1);
-            z-index: 3;
-        }
-
-        .swiper-slide-prev,
-        .swiper-slide-next {
-            transform: scale(0.9);
-            z-index: 2;
-        }
-    }
-}

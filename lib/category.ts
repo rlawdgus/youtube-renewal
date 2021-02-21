@@ -1,4 +1,4 @@
-import { VideoCategory } from "./interfaces";
+import { categoryItem } from "./interfaces";
 
 export const categoryList: string[] = [
     "",
@@ -48,7 +48,42 @@ export const categoryList: string[] = [
     "Trailers",
 ];
 
-export const categoryListIndex: VideoCategory[] = [
+export const categoryListIndex: number[] = [
+    1,
+    2,
+    10,
+    15,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+];
+
+export const categoryItems: categoryItem[] = [
     { id: "1", name: "Film & Animation" },
     { id: "2", name: "Autos & Vehicles" },
     { id: "10", name: "Music" },

@@ -1,6 +1,7 @@
 @import "../../lib/root.scss";
 
 .drawer-wrapper {
+    width: 100vw;
     text-align: center;
     padding: 120px 0 20px;
     background-color: $background-drawer;
@@ -10,6 +11,7 @@
         font-size: $fs24;
         padding: 10px !important;
         transition: background-color 0.3s ease-in-out;
+        display: inline-block;
     }
 
     .category-name:hover {
