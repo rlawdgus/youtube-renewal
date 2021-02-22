@@ -1,4 +1,5 @@
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import "../lib/root.scss";
 
 html,
 body,
@@ -94,7 +95,7 @@ video {
 }
 
 body {
-    background-color: #2e2e2e;
+    background-color: $background-normal;
 }
 
 a {
@@ -105,4 +106,32 @@ a {
 ul,
 ol {
     list-style: none;
+}
+
+.swiper-container {
+    width: 100vw;
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        color: $font-white;
+        top: 50%;
+    }
+
+    .swiper-wrapper {
+        box-sizing: border-box;
+
+        .swiper-slide {
+            transform-origin: center center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .swiper-slide-active {
+            z-index: 3;
+        }
+
+        .swiper-slide-prev,
+        .swiper-slide-next {
+            z-index: 2;
+        }
+    }
 }
