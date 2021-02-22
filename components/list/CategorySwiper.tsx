@@ -8,10 +8,10 @@ import { Video } from "../../lib/interfaces";
 import styles from "./CategorySwiper.module.scss";
 import classnames from "classnames/bind";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation } from "swiper";
+import SwiperCore, { Autoplay } from "swiper";
 
 const cx = classnames.bind(styles);
-SwiperCore.use([Navigation]);
+SwiperCore.use([Autoplay]);
 
 interface CategorySwiperProps {
     videos: any[];
@@ -21,12 +21,11 @@ const CategorySwiper: React.FC<CategorySwiperProps> = ({ videos }) => {
     return (
         <section className={cx("category-swiper")}>
             <Swiper
-                navigation
                 slidesPerView={5}
                 centeredSlides
                 loop
-                autoHeight
-                spaceBetween={-100}
+                autoplay
+                spaceBetween={7}
             >
                 {videos.length === 0 ? (
                     <>
@@ -48,7 +47,7 @@ const CategorySwiper: React.FC<CategorySwiperProps> = ({ videos }) => {
                         };
                         return (
                             <SwiperSlide key={video.id}>
-                                <Card video={video} />
+                                <Card video={video} full={true} />
                             </SwiperSlide>
                         );
                     })

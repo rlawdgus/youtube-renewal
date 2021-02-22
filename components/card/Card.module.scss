@@ -47,7 +47,7 @@
 
             .title {
                 color: $font-white;
-                font-size: $fs16;
+                font-size: $fs14;
                 font-weight: bold;
                 line-height: $fs20;
                 display: -webkit-box;
@@ -60,11 +60,29 @@
             }
 
             .channel {
-                font-size: $fs14;
+                font-size: $fs10;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
             }
+
+            .info {
+                font-size: $fs10;
+            }
         }
+    }
+}
+
+.full {
+    width: 100%;
+
+    .thumbnail {
+        height: 0;
+        padding-bottom: 56%;
+    }
+
+    .title-wrapper {
+        height: 0;
+        padding-bottom: 26.667%;
     }
 }

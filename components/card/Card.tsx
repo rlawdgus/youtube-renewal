@@ -20,9 +20,10 @@ const cx = classnames.bind(style);
 
 interface CardProps {
     video: Video;
+    full?: boolean;
 }
 
-const Card: React.FC<CardProps> = ({ video }) => {
+const Card: React.FC<CardProps> = ({ video, full }) => {
     const [profile, setProfile] = useState<string>();
     const callGetProfilePicture = useCallback(async () => {
         //loading-on
@@ -45,7 +46,7 @@ const Card: React.FC<CardProps> = ({ video }) => {
     }, []);
 
     return (
-        <div className={cx("card")}>
+        <div className={cx("card", "full")}>
             <Link href={`${Path.main.watch}?video_id=${video.id}`}>
                 <a>
                     <div
