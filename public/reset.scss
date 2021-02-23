@@ -110,8 +110,7 @@ ol {
 
 .swiper-container {
     width: 80vw;
-    height: 353.62px;
-    overflow: visible !important;
+    height: 400px;
 
     .swiper-button-prev,
     .swiper-button-next {
@@ -121,8 +120,8 @@ ol {
 
     .swiper-wrapper {
         box-sizing: border-box;
-        height: 353.62px;
-        padding-top: 45px;
+        height: 400px;
+        padding-top: 80px;
 
         .swiper-slide {
             transform-origin: center center;
@@ -131,13 +130,13 @@ ol {
 
         .swiper-slide-active {
             z-index: 3;
-            transform: scale(1.3);
+            transform: scale(1.5);
         }
 
         .swiper-slide-prev,
         .swiper-slide-next {
             z-index: 2;
-            transform: scale(1.1);
+            transform: scale(1.3);
         }
     }
 }

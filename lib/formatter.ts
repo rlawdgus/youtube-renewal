@@ -32,28 +32,33 @@ export const viewFormatter = (viewCount: string): string => {
     return result;
 };
 
-export const fillZero = (str: string, len: number): string => {
-    let result: string = "";
-    let place: number = len - str.length;
-
-    for (let i: number = 0; i < place; i++) result += "0";
-    result += str;
-
-    return result;
-};
-
 export const durationFormatter = (duration: string): string => {
-    const subStringPT = duration.substring(2, duration.length);
-    const stringSplit = subStringPT.split(/H|M|S/);
+    const removePT: string = duration.substring(2, duration.length);
+    const timeSplit: string[] = removePT.split(/H|M|S/);
 
-    if (stringSplit.length === 2) return `0:${fillZero(stringSplit[0], 2)}`;
-    else if (stringSplit.length === 3)
-        return `${stringSplit[0]}:${fillZero(stringSplit[0], 2)}`;
+    const indexOfH: number = removePT.indexOf("H");
+    const indexOfM: number = removePT.indexOf("M");
+    const indexOfS: number = removePT.indexOf("S");
+
+    if (indexOfH === -1 && indexOfM === -1)
+        return "0:" + ("00" + timeSplit[0]).slice(-2);
+    else if (indexOfH === -1 && indexOfS === -1)
+        return "0:" + ("00" + timeSplit[0]).slice(-2) + ":00";
+    else if (indexOfM === -1 && indexOfS) return timeSplit[0] + ":00:00";
+    else if (indexOfH === -1)
+        return timeSplit[0] + ":" + ("00" + timeSplit[1]).slice(-2);
+    else if (indexOfM === -1)
+        return timeSplit[0] + ":00:" + ("00" + timeSplit[1]).slice(-2);
+    else if (indexOfS === -1)
+        return timeSplit[0] + ("00" + timeSplit[1]).slice(-2) + ":00";
     else
-        return `${stringSplit[0]}:${fillZero(stringSplit[1], 2)}:${fillZero(
-            stringSplit[2],
-            2
-        )}`;
+        return (
+            timeSplit[0] +
+            ":" +
+            ("00" + timeSplit[1]).slice(-2) +
+            ":" +
+            ("00" + timeSplit[2]).slice(-2)
+        );
 };
 
 const SECOND: number = 1000;
