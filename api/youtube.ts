@@ -11,7 +11,7 @@ export const getRecentlyVideos = async () => {
             key: KEY,
             part: "id,snippet,contentDetails,statistics",
             chart: "mostPopular",
-            maxResults: 7,
+            maxResults: 20,
         },
     };
 

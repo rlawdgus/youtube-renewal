@@ -46,7 +46,7 @@ const Card: React.FC<CardProps> = ({ video, full }) => {
     }, []);
 
     return (
-        <div className={cx("card", "full")}>
+        <div className={cx("card", { full })}>
             <Link href={`${Path.main.watch}?video_id=${video.id}`}>
                 <a>
                     <div

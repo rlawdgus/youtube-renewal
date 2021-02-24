@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import CategoryDrawer from "../components/list/CategoryDrawer";
-import CategorySwiper from '../components/list/CategorySwiper'
+import CategorySwiper from "../components/list/CategorySwiper";
 import RecentlyVideos from "../components/list/RecentlyVideos";
 
 import { categoryList, categoryListIndex } from "../lib/category";
@@ -55,7 +55,7 @@ const Index: NextPage<any> = ({ initCategoryIndex, data }) => {
                 setCategoryIndex={setCategoryIndex}
             />
             <CategorySwiper videos={data.items} />
-            {/* <RecentlyVideos videos={data.items} /> */}
+            <RecentlyVideos videos={data.items} />
         </>
     );
 };
