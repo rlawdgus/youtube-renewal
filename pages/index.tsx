@@ -6,7 +6,8 @@ import CategoryDrawer from "../components/list/CategoryDrawer";
 import CategorySwiper from "../components/list/CategorySwiper";
 import RecentlyVideos from "../components/list/RecentlyVideos";
 
-import { categoryList, categoryListIndex } from "../lib/category";
+import { categoryItem } from "../lib/interfaces";
+import { categoryItems } from "../lib/category";
 
 import { getRecentlyVideos } from "../api/youtube";
 
@@ -17,17 +18,13 @@ const Index: NextPage<any> = ({ initCategoryIndex, data }) => {
 
     const videos = useSelector((state: any) => state.videos.videos);
 
-    const [category, setCategory] = useState<string>(
-        categoryList[categoryListIndex[initCategoryIndex]]
-    );
-    const [categoryIndex, setCategoryIndex] = useState<number>(
-        categoryListIndex[initCategoryIndex]
+    const [category, setCategory] = useState<categoryItem>(
+        categoryItems[initCategoryIndex]
     );
     const [categoryVideos, setCategoryVideos] = useState<any[]>(
         data.items.filter(
             (item: any) =>
-                item.snippet.categoryId ===
-                categoryListIndex[initCategoryIndex].toString()
+                item.snippet.categoryId === categoryItems[initCategoryIndex].id
         )
     );
 
@@ -35,26 +32,20 @@ const Index: NextPage<any> = ({ initCategoryIndex, data }) => {
         dispatch(storeVideo(data.items));
     }, []);
 
-    // useEffect(
-    //     () =>
-    //         setCategoryVideos(
-    //             data.items.filter(
-    //                 (item: any) =>
-    //                     item.snippet.categoryId ===
-    //                     categoryListIndex[categoryIndex].toString()
-    //             )
-    //         ),
-    //     [categoryIndex]
-    // );
+    useEffect(
+        () =>
+            setCategoryVideos(
+                data.items.filter(
+                    (item: any) => item.snippet.categoryId === category.id
+                )
+            ),
+        [category]
+    );
 
     return (
         <>
-            <CategoryDrawer
-                category={category}
-                setCategory={setCategory}
-                setCategoryIndex={setCategoryIndex}
-            />
-            <CategorySwiper videos={data.items} />
+            <CategoryDrawer category={category} setCategory={setCategory} />
+            <CategorySwiper videos={categoryVideos} />
             <RecentlyVideos videos={data.items} />
         </>
     );
@@ -62,7 +53,7 @@ const Index: NextPage<any> = ({ initCategoryIndex, data }) => {
 
 Index.getInitialProps = async () => {
     const initCategoryIndex: number = Math.floor(
-        Math.random() * categoryListIndex.length
+        Math.random() * categoryItems.length
     );
 
     const response = await getRecentlyVideos();

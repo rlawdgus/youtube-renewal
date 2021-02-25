@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import { categoryItem } from "../../lib/interfaces";
 import { categoryItems } from "../../lib/category";
 
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
@@ -13,15 +14,13 @@ import classnames from "classnames/bind";
 const cx = classnames.bind(style);
 
 interface CategoryDrawerProps {
-    category: string;
+    category: categoryItem;
     setCategory: Function;
-    setCategoryIndex: Function;
 }
 
 const CategoryDrawer: React.FC<CategoryDrawerProps> = ({
     category,
     setCategory,
-    setCategoryIndex,
 }) => {
     const [drawer, setDrawer] = useState<boolean>(false);
 
@@ -47,7 +46,7 @@ const CategoryDrawer: React.FC<CategoryDrawerProps> = ({
                     className={cx("category-name")}
                     onClick={toggleDrawer(true)}
                 >
-                    {category}
+                    {category.name}
                 </ButtonBase>
             </aside>
             <SwipeableDrawer
@@ -61,8 +60,7 @@ const CategoryDrawer: React.FC<CategoryDrawerProps> = ({
                         <ListItem key={item.id}>
                             <ButtonBase
                                 onClick={() => {
-                                    setCategory(item.name);
-                                    setCategoryIndex(item.id);
+                                    setCategory(item);
                                     setDrawer(false);
                                 }}
                             >
