@@ -11,6 +11,8 @@ import { categoryItems } from "../lib/category";
 
 import { getRecentlyVideos } from "../api/youtube";
 
+import useWindowSize, { Window } from "../hooks/useWindowSize";
+
 import { storeVideo } from "../store/videos";
 
 const Index: NextPage<any> = ({ initCategoryIndex, data }) => {
@@ -42,8 +44,15 @@ const Index: NextPage<any> = ({ initCategoryIndex, data }) => {
         [category]
     );
 
+    let windowSize: Window;
+
+    if (typeof window !== "undefined") {
+        windowSize = useWindowSize();
+    }
+
     return (
         <>
+            {console.log(windowSize)}
             <CategoryDrawer category={category} setCategory={setCategory} />
             <CategorySwiper videos={categoryVideos} />
             <RecentlyVideos videos={data.items} />

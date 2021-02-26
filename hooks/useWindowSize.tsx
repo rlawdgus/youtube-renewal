@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-type Window = {
+export type Window = {
     width: number;
     height: number;
 };

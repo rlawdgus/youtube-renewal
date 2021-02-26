@@ -16,20 +16,23 @@ interface VideosProps {
 const Videos: React.FC<VideosProps> = ({ videos }) => {
     return (
         <main className={cx("main")}>
-            {videos.map((item: any) => {
-                const video: Video = {
-                    id: item.id,
-                    title: item.snippet.title,
-                    thumbnail: item.snippet.thumbnails.high.url,
-                    duration: item.contentDetails.duration,
-                    channelId: item.snippet.channelId,
-                    channelTitle: item.snippet.channelTitle,
-                    viewCount: item.statistics.viewCount,
-                    publishedAt: item.snippet.publishedAt,
-                };
+            <h1>Recently</h1>
+            <div className={cx("flex-wrapper")}>
+                {videos.map((item: any) => {
+                    const video: Video = {
+                        id: item.id,
+                        title: item.snippet.title,
+                        thumbnail: item.snippet.thumbnails.high.url,
+                        duration: item.contentDetails.duration,
+                        channelId: item.snippet.channelId,
+                        channelTitle: item.snippet.channelTitle,
+                        viewCount: item.statistics.viewCount,
+                        publishedAt: item.snippet.publishedAt,
+                    };
 
-                return <Card video={video} key={item.id} />;
-            })}
+                    return <Card video={video} key={item.id} />;
+                })}
+            </div>
         </main>
     );
 };
