@@ -7,14 +7,8 @@ $font-dark: #747474;
 $border-search: #484848;
 
 $background-header: #171717;
-$background-nav: #1e1e1e;
-$background-search: #1c1c1c;
-$background-drawer: #232323;
-$background-normal: #2e2e2e;
 
-$box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.16);
-
-$level-header: 1200;
+$header: 5000;
 
 //base 12
 $fs8: 0.6667rem;
@@ -40,11 +34,3 @@ $fs34: 2.833rem;
 $fs36: 3rem;
 $fs38: 3.167rem;
 $fs40: 3.333rem;
-
-@mixin container {
-    max-width: 1920px;
-    min-width: 320px;
-    margin: 0 auto;
-    width: 100%;
-    position: relative;
-}

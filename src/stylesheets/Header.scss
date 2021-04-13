@@ -1,0 +1,28 @@
+@import "./root.scss";
+
+header {
+    position: fixed;
+    width: 100%;
+    height: 56px;
+    background-color: $background-header;
+    z-index: $header;
+
+    .logo-container {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+
+        & > img {
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        & > h1 {
+            display: inline-block;
+            color: $font-white;
+            font-size: $fs24;
+            font-weight: normal;
+        }
+    }
+}
