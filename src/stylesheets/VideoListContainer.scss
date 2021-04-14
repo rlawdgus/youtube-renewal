@@ -5,3 +5,9 @@
     height: 100vh;
     background-color: $background-list;
 }
+
+@media (max-width: 1366px) {
+    .video-list-container {
+        width: calc(100% - 375px);
+    }
+}

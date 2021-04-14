@@ -8,3 +8,9 @@
     height: 100vh;
     background-color: $background-view;
 }
+
+@media (max-width: 1366px) {
+    .view-container {
+        width: 375px;
+    }
+}
