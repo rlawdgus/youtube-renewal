@@ -1,0 +1,10 @@
+@import "./root.scss";
+
+.view-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 640px;
+    height: 100vh;
+    background-color: $background-view;
+}

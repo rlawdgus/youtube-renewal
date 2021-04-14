@@ -1,0 +1,7 @@
+@import "./root.scss";
+
+.video-list-container {
+    width: calc(100% - 640px);
+    height: 100vh;
+    background-color: $background-list;
+}
