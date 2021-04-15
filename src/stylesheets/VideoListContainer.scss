@@ -45,7 +45,7 @@
 
     .video-list-sidebar {
         width: 375px;
-        height: 100vh;
+        height: 100%;
         background-color: $background-list;
         position: fixed;
         left: -375px;
@@ -85,5 +85,25 @@
 
     .video-list-sidebar-container {
         display: block;
+    }
+}
+
+@media (max-width: 320px) {
+    .video-list-sidebar-container {
+        #video-list {
+            & + label {
+                width: 60px;
+                padding: 10px;
+            }
+
+            &:checked + label {
+                left: 10px;
+            }
+        }
+
+        .video-list-sidebar {
+            width: 320px;
+            left: -320px;
+        }
     }
 }
