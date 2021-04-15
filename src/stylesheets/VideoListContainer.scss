@@ -6,8 +6,84 @@
     background-color: $background-list;
 }
 
+.video-list-sidebar-container {
+    display: none;
+
+    #video-list {
+        display: none;
+
+        & + label {
+            display: block;
+            width: 70px;
+            padding: 10px;
+            text-align: center;
+            color: $font-white;
+            position: fixed;
+            top: 76px;
+            left: 0;
+            z-index: $level-view + 3;
+            border-bottom: 1px solid $font-white;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        &:checked + label {
+            left: 30px;
+            background-color: $background-list;
+            border: none;
+
+            & + .video-list-sidebar {
+                left: 0;
+            }
+        }
+
+        &:checked ~ .dim {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    .video-list-sidebar {
+        width: 375px;
+        height: 100vh;
+        background-color: $background-list;
+        position: fixed;
+        left: -375px;
+        z-index: $level-view + 2;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .dim {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: #000, $alpha: 0.3);
+        opacity: 0;
+        visibility: hidden;
+        z-index: $level-view + 1;
+    }
+}
+
 @media (max-width: 1366px) {
     .video-list-container {
+        width: calc(100% - 640px);
+    }
+}
+
+@media (max-width: 1024px) {
+    .video-list-container {
         width: calc(100% - 375px);
+    }
+}
+
+@media (max-width: 1023px) {
+    .video-list-container {
+        display: none;
+    }
+
+    .video-list-sidebar-container {
+        display: block;
     }
 }

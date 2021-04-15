@@ -7,9 +7,16 @@
     width: 640px;
     height: 100vh;
     background-color: $background-view;
+    z-index: $level-view;
 }
 
 @media (max-width: 1366px) {
+    .view-container {
+        width: 640px;
+    }
+}
+
+@media (max-width: 1024px) {
     .view-container {
         width: 375px;
     }
