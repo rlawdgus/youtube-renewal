@@ -21,3 +21,9 @@
         width: 375px;
     }
 }
+
+@media (max-width: 1023px) {
+    .view-container {
+        width: 100%;
+    }
+}
