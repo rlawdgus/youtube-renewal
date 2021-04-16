@@ -1,3 +1,5 @@
+import React from "react";
+
 import { useChannelPicture } from "../hooks/useChannelPicture";
 
 import {
@@ -28,9 +30,8 @@ const Card = ({ video }) => {
                     </h3>
                 </div>
             </div>
-            {console.log(video)}
         </div>
     );
 };
 
-export default Card;
+export default React.memo(Card);

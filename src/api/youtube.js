@@ -9,7 +9,7 @@ export const requestGetVideoList = async () => {
             key: KEY,
             part: "id,snippet,contentDetails,statistics,player",
             chart: "mostPopular",
-            maxResults: 1,
+            maxResults: 12,
         },
     };
 

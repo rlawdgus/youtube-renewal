@@ -2,7 +2,6 @@
 
 .card {
     position: relative;
-    width: 375px;
     color: $font-white;
     cursor: pointer;
 
@@ -62,6 +61,7 @@
 
             & > h3 {
                 font-size: $fs14;
+                font-weight: 400;
                 color: $font-dark;
                 white-space: nowrap;
                 overflow: hidden;

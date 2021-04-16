@@ -4,7 +4,32 @@
     width: calc(100% - 640px);
     height: 100vh;
     background-color: $background-list;
-    padding: 100px 40px;
+    padding: 100px 0;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: none;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $font-dark;
+        border-radius: 3px;
+    }
+
+    .video-list-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        .card {
+            width: 32%;
+            margin-bottom: 40px;
+        }
+    }
 }
 
 .video-list-sidebar-container {
@@ -20,7 +45,7 @@
             text-align: center;
             color: $font-white;
             position: fixed;
-            top: 76px;
+            bottom: 10px;
             left: 0;
             z-index: $level-view + 3;
             border-bottom: 1px solid $font-white;
@@ -29,9 +54,8 @@
         }
 
         &:checked + label {
-            left: 30px;
-            background-color: $background-list;
-            border: none;
+            left: 305px;
+            background-color: $font-dark;
 
             & + .video-list-sidebar {
                 left: 0;
@@ -52,6 +76,25 @@
         left: -375px;
         z-index: $level-view + 2;
         transition: all 0.3s ease-in-out;
+        overflow-y: scroll;
+        padding: 56px 0;
+
+        &::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: none;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $font-dark;
+            border-radius: 3px;
+        }
+
+        .card {
+            margin-bottom: 20px;
+        }
     }
 
     .dim {
@@ -67,15 +110,41 @@
     }
 }
 
+@media (max-width: 1600px) {
+    .video-list-container {
+        .video-list-wrapper {
+            .card {
+                width: 49%;
+            }
+        }
+    }
+}
+
 @media (max-width: 1366px) {
     .video-list-container {
         width: calc(100% - 640px);
     }
 }
 
+@media (max-width: 1250px) {
+    .video-list-container {
+        .video-list-wrapper {
+            .card {
+                width: 99%;
+            }
+        }
+    }
+}
+
 @media (max-width: 1024px) {
     .video-list-container {
         width: calc(100% - 375px);
+
+        .video-list-wrapper {
+            .card {
+                width: 49%;
+            }
+        }
     }
 }
 
@@ -98,7 +167,7 @@
             }
 
             &:checked + label {
-                left: 10px;
+                left: 260px;
             }
         }
 
