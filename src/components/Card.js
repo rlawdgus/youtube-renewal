@@ -1,6 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
-
-import { requestGetChannelPicture } from "../api/youtube";
+import { useChannelPicture } from "../hooks/useChannelPicture";
 
 import {
     durationFormatter,
@@ -11,19 +9,8 @@ import {
 import "../stylesheets/Card.scss";
 
 const Card = ({ video }) => {
-    const [channelPicture, setChannelPicture] = useState();
-    const getChannelPicture = useCallback(async (channelId) => {
-        const result = await requestGetChannelPicture(channelId);
+    const [channelPicture] = useChannelPicture(video.snippet.channelId);
 
-        if (result.status === 200) {
-            setChannelPicture(
-                result.data.items[0].snippet.thumbnails.default.url
-            );
-        }
-    }, []);
-    useEffect(() => {
-        getChannelPicture(video.snippet.channelId);
-    }, []);
     return (
         <div className="card">
             <div className="card-thumbnail">

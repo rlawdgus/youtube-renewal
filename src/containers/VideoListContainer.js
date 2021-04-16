@@ -1,23 +1,11 @@
-import React, { useCallback, useEffect, useState } from "react";
-
-import { requestGetVideoList } from "../api/youtube";
+import { useVideoList } from "../hooks/useVideoList";
 
 import Card from "../components/Card";
 
 import "../stylesheets/VideoListContainer.scss";
 
 const VideoList = () => {
-    const [videoList, setVideoList] = useState([]);
-    const getVideoList = useCallback(async () => {
-        const result = await requestGetVideoList();
-
-        if (result.status === 200) {
-            setVideoList(result.data.items);
-        }
-    }, []);
-    useEffect(() => {
-        getVideoList();
-    }, []);
+    const [videoList] = useVideoList();
 
     return (
         <>

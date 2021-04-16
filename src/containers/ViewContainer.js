@@ -1,5 +1,3 @@
-import React from "react";
-
 import "../stylesheets/ViewContainer.scss";
 
 const ViewContainer = () => {
