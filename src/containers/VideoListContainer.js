@@ -2,12 +2,18 @@ import React, { useCallback, useEffect, useState } from "react";
 
 import { requestGetVideoList } from "../api/youtube";
 
+import Card from "../components/Card";
+
 import "../stylesheets/VideoListContainer.scss";
 
 const VideoList = () => {
     const [videoList, setVideoList] = useState([]);
     const getVideoList = useCallback(async () => {
-        setVideoList(await requestGetVideoList());
+        const result = await requestGetVideoList();
+
+        if (result.status === 200) {
+            setVideoList(result.data.items);
+        }
     }, []);
     useEffect(() => {
         getVideoList();
@@ -15,8 +21,12 @@ const VideoList = () => {
 
     return (
         <>
-            {console.log(videoList)}
-            <section className="video-list-container"></section>
+            <section className="video-list-container">
+                {videoList.length !== 0 &&
+                    videoList.map((video) => (
+                        <Card video={video} key={video.id} />
+                    ))}
+            </section>
             <section className="video-list-sidebar-container">
                 <input type="checkbox" id="video-list" />
                 <label htmlFor="video-list">Newly</label>

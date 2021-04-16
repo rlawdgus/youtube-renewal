@@ -15,5 +15,19 @@ export const requestGetVideoList = async () => {
 
     const response = await axios.get(`${URL}/videos`, config);
 
-    return response.data;
+    return response;
+};
+
+export const requestGetChannelPicture = async (channelId) => {
+    const config = {
+        params: {
+            key: KEY,
+            part: "snippet",
+            id: channelId,
+        },
+    };
+
+    const response = await axios.get(`${URL}/channels`, config);
+
+    return response;
 };
