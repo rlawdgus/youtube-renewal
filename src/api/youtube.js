@@ -7,7 +7,7 @@ export const requestGetVideoList = async () => {
     const config = {
         params: {
             key: KEY,
-            part: "id,snippet,contentDetails,statistics,player",
+            part: "id,snippet,contentDetails,statistics",
             chart: "mostPopular",
             maxResults: 12,
         },
