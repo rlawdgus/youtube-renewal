@@ -3,7 +3,6 @@
 .card {
     position: relative;
     color: $font-white;
-    cursor: pointer;
 
     .card-thumbnail {
         width: 100%;
@@ -11,6 +10,7 @@
         padding-bottom: 56.25%;
         overflow: hidden;
         position: inherit;
+        cursor: pointer;
 
         & > img {
             width: 100%;
@@ -40,6 +40,7 @@
             height: 36px;
             border-radius: 50%;
             margin: 12px 12px 0 0;
+            cursor: pointer;
         }
 
         .card-title-wrapper {
@@ -47,6 +48,7 @@
             position: relative;
             top: 12px;
             line-height: $fs22;
+            cursor: pointer;
 
             & > h2 {
                 font-size: $fs16;
