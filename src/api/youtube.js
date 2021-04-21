@@ -18,6 +18,22 @@ export const requestGetVideoList = async () => {
     return response;
 };
 
+export const requestGetNextVideoList = async (token) => {
+    const config = {
+        params: {
+            key: KEY,
+            part: "id,snippet,contentDetails,statistics",
+            chart: "mostPopular",
+            maxResults: 12,
+            pageToken: token,
+        },
+    };
+
+    const response = await axios.get(`${URL}/videos`, config);
+
+    return response;
+};
+
 export const requestGetChannelPicture = async (channelId) => {
     const config = {
         params: {
