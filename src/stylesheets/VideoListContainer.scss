@@ -2,9 +2,11 @@
 
 .video-list-container {
     width: calc(100% - 640px);
-    height: 100vh;
+    height: calc(100% - 56px);
+    position: fixed;
+    bottom: 0;
     background-color: $background-list;
-    padding: 100px 0;
+    padding: 20px 0 0;
     overflow-y: scroll;
 
     &::-webkit-scrollbar {
@@ -70,14 +72,14 @@
 
     .video-list-sidebar {
         width: 375px;
-        height: 100%;
+        height: calc(100% - 56px);
         background-color: $background-list;
         position: fixed;
         left: -375px;
+        bottom: 0;
         z-index: $level-view + 2;
         transition: all 0.3s ease-in-out;
         overflow-y: scroll;
-        padding: 56px 0;
 
         &::-webkit-scrollbar {
             width: 3px;
