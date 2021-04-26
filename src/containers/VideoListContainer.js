@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useRef, useState } from "react";
 
 import { useVideoList } from "../hooks/useVideoList";
 
@@ -10,14 +10,37 @@ const VideoList = () => {
     const [videoList] = useVideoList();
     const [checked, setChecked] = useState(false);
 
+    const observer = useRef();
+    const lastCard = useCallback((node) => {
+        if (observer.current) observer.current.disconnect();
+
+        observer.current = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                console.log("asd");
+            }
+        });
+
+        if (node) observer.current.observe(node);
+    });
+
     return (
         <>
             <section className="video-list-container">
                 <div className="video-list-wrapper">
                     {videoList.length !== 0 &&
-                        videoList.map((video) => (
-                            <Card video={video} key={video.id} />
-                        ))}
+                        videoList.map((video, index) => {
+                            if (videoList.length === index + 1)
+                                return (
+                                    <Card
+                                        video={video}
+                                        lastCard={lastCard}
+                                        key={video.id}
+                                    />
+                                );
+                            else {
+                                return <Card video={video} key={video.id} />;
+                            }
+                        })}
                 </div>
             </section>
             <section className="video-list-sidebar-container">

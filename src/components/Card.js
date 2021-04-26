@@ -13,7 +13,7 @@ import {
 
 import "../stylesheets/Card.scss";
 
-const Card = ({ video }) => {
+const Card = ({ video, lastCard }) => {
     const [channelPicture] = useChannelPicture(video.snippet.channelId);
 
     const dispatch = useDispatch();
@@ -21,8 +21,10 @@ const Card = ({ video }) => {
         dispatch(storeVideoId(videoId));
     }, []);
 
+    console.log(lastCard);
+
     return (
-        <div className="card">
+        <div className="card" ref={lastCard}>
             <div className="card-thumbnail" onClick={() => storing(video.id)}>
                 <img src={video.snippet.thumbnails.high.url} alt="" />
                 <span>{durationFormatter(video.contentDetails.duration)}</span>
