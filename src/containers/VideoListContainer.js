@@ -1,7 +1,7 @@
-import { useCallback, useRef, useState } from "react";
+import { useState } from "react";
 
 import { useVideoList } from "../hooks/useVideoList";
-import { useNextVideoList } from "../hooks/useNextVideoList";
+import { useLastCard } from "../hooks/useLastCard";
 
 import Card from "../components/Card";
 
@@ -11,27 +11,7 @@ const VideoList = () => {
     const [videoList, setVideoList, nextPageToken] = useVideoList();
     const [checked, setChecked] = useState(false);
 
-    const getNextVideoList = async () => {
-        const [nextVideoList, newNextPageToken] = await useNextVideoList(
-            nextPageToken.current
-        );
-
-        setVideoList(videoList.concat(nextVideoList));
-        nextPageToken.current = newNextPageToken;
-    };
-
-    const observer = useRef();
-    const lastCard = useCallback((node) => {
-        if (observer.current) observer.current.disconnect();
-
-        observer.current = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                getNextVideoList();
-            }
-        });
-
-        if (node) observer.current.observe(node);
-    });
+    const [lastCard] = useLastCard(videoList, setVideoList, nextPageToken);
 
     return (
         <>
