@@ -1,57 +1,22 @@
-import { useState } from "react";
+import VideoList from "../components/VideoList";
+// import VideoListSidebar from "../components/VideoListSidebar";
 
 import { useVideoList } from "../hooks/useVideoList";
 import { useLastCard } from "../hooks/useLastCard";
 
-import Card from "../components/Card";
-
 import "../stylesheets/VideoListContainer.scss";
 
-const VideoList = () => {
+const VideoListContainer = () => {
     const [videoList, setVideoList, nextPageToken] = useVideoList();
-    const [checked, setChecked] = useState(false);
 
     const [lastCard] = useLastCard(videoList, setVideoList, nextPageToken);
 
     return (
         <>
-            <section className="video-list-container">
-                <div className="video-list-wrapper">
-                    {videoList.length !== 0 &&
-                        videoList.map((video, index) => {
-                            if (videoList.length === index + 1)
-                                return (
-                                    <Card
-                                        video={video}
-                                        lastCard={lastCard}
-                                        key={video.id}
-                                    />
-                                );
-                            else {
-                                return <Card video={video} key={video.id} />;
-                            }
-                        })}
-                </div>
-            </section>
-            <section className="video-list-sidebar-container">
-                <input
-                    type="checkbox"
-                    id="video-list"
-                    onClick={() => setChecked(!checked)}
-                />
-                <label htmlFor="video-list">
-                    {checked ? "Close" : "Newly"}
-                </label>
-                <div className="video-list-sidebar">
-                    {videoList.length !== 0 &&
-                        videoList.map((video) => (
-                            <Card video={video} key={video.id} />
-                        ))}
-                </div>
-                <label htmlFor="video-list" className="dim"></label>
-            </section>
+            <VideoList videoList={videoList} lastCard={lastCard} />
+            {/* <VideoListSidebar videoList={videoList} lastCard={lastCard} /> */}
         </>
     );
 };
 
-export default VideoList;
+export default VideoListContainer;
