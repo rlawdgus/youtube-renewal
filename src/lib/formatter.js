@@ -43,7 +43,7 @@ export const durationFormatter = (duration) => {
     if (indexOfH === -1 && indexOfM === -1)
         return "0:" + ("00" + timeSplit[0]).slice(-2);
     else if (indexOfH === -1 && indexOfS === -1) return timeSplit[0] + ":00";
-    else if (indexOfM === -1 && indexOfS) return timeSplit[0] + ":00:00";
+    else if (indexOfM === -1 && indexOfS === -1) return timeSplit[0] + ":00:00";
     else if (indexOfH === -1)
         return timeSplit[0] + ":" + ("00" + timeSplit[1]).slice(-2);
     else if (indexOfM === -1)

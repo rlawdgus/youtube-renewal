@@ -21,8 +21,6 @@ const Card = ({ video, lastCard }) => {
         dispatch(storeVideoId(videoId));
     }, []);
 
-    console.log(lastCard);
-
     return (
         <div className="card" ref={lastCard}>
             <div className="card-thumbnail" onClick={() => storing(video.id)}>
