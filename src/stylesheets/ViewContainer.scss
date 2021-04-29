@@ -8,6 +8,8 @@
     height: 100%;
     background-color: $background-view;
     z-index: $level-view;
+    padding: 20px;
+    padding-bottom: 0;
 
     .view-wrapper {
         position: relative;
@@ -29,6 +31,19 @@
                 width: 100%;
                 height: 100%;
             }
+        }
+    }
+
+    .view-information {
+        position: relative;
+        top: 56px;
+        max-width: 800px;
+        margin: 20px auto 0;
+        font-size: $fs18;
+        color: $font-white;
+
+        .view-information-tag {
+            color: $font-blue;
         }
     }
 }

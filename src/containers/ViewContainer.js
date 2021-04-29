@@ -1,6 +1,10 @@
 import View from "../components/View";
+import ViewInforamtion from "../components/ViewInformation";
+import ViewSkeleon from "../components/ViewSkeleton";
 
 import { useSelector } from "react-redux";
+
+import { isEmpty } from "../lib/empty";
 
 import "../stylesheets/ViewContainer.scss";
 
@@ -9,9 +13,14 @@ const ViewContainer = () => {
 
     return (
         <section className="view-container">
-            <div className="view-wrapper">
-                <View videoId={video.id} />
-            </div>
+            {isEmpty(video) ? (
+                <ViewSkeleon />
+            ) : (
+                <>
+                    <View videoId={video.id} />
+                    <ViewInforamtion video={video} />
+                </>
+            )}
         </section>
     );
 };
