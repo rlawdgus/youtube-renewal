@@ -23,7 +23,7 @@ const Card = ({ video, lastCard }) => {
 
     return (
         <div className="card" ref={lastCard}>
-            <div className="card-thumbnail" onClick={() => storing(video.id)}>
+            <div className="card-thumbnail" onClick={() => storing(video)}>
                 <img src={video.snippet.thumbnails.high.url} alt="" />
                 <span>{durationFormatter(video.contentDetails.duration)}</span>
             </div>
@@ -31,7 +31,7 @@ const Card = ({ video, lastCard }) => {
                 <img src={channelPicture} alt="" />
                 <div
                     className="card-title-wrapper"
-                    onClick={() => storing(video.id)}
+                    onClick={() => storing(video)}
                 >
                     <h2>{video.snippet.title}</h2>
                     <h3>{video.snippet.channelTitle}</h3>

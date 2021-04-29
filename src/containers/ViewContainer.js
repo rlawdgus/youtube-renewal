@@ -5,12 +5,12 @@ import { useSelector } from "react-redux";
 import "../stylesheets/ViewContainer.scss";
 
 const ViewContainer = () => {
-    const videoId = useSelector((state) => state.video.id);
+    const video = useSelector((state) => state.video);
 
     return (
         <section className="view-container">
             <div className="view-wrapper">
-                <View videoId={videoId} />
+                <View videoId={video.id} />
             </div>
         </section>
     );

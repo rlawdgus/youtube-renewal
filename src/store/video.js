@@ -4,15 +4,13 @@ const VIDEO_ID = "video/VIDEO_ID";
 
 export const storeVideoId = createAction(VIDEO_ID);
 
-const initialState = {
-    id: "",
-};
+const initialState = {};
 
 const video = handleActions(
     {
         [VIDEO_ID]: (state, action) => ({
             ...state,
-            id: action.payload,
+            ...action.payload,
         }),
     },
     initialState
