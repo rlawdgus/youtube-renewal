@@ -7,8 +7,8 @@ import { storeVideoId } from "../store/video";
 
 import {
     durationFormatter,
-    viewFormatter,
-    publishedAtFormatter,
+    countFormatter,
+    beforeFormatter,
 } from "../lib/formatter";
 
 import "../stylesheets/Card.scss";
@@ -36,8 +36,10 @@ const Card = ({ video, lastCard }) => {
                     <h2>{video.snippet.title}</h2>
                     <h3>{video.snippet.channelTitle}</h3>
                     <h3>
-                        {viewFormatter(video.statistics.viewCount)}·
-                        {publishedAtFormatter(video.snippet.publishedAt)}
+                        {`조회수 ${countFormatter(
+                            video.statistics.viewCount
+                        )}회`}{" "}
+                        · {beforeFormatter(video.snippet.publishedAt)}
                     </h3>
                 </div>
             </div>

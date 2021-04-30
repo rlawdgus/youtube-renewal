@@ -3,7 +3,7 @@ const TEN_THOUSAND = 10 * THOUSAND;
 const HUNDRED_MILLION = 1000 * TEN_THOUSAND;
 const TRILLION = 1000 * HUNDRED_MILLION;
 
-export const viewFormatter = (viewCount) => {
+export const countFormatter = (viewCount) => {
     const view = parseInt(viewCount);
     let result = "";
     let tmp = 0;
@@ -12,21 +12,21 @@ export const viewFormatter = (viewCount) => {
     if (view / TRILLION >= 1) {
         tmp = view / TRILLION;
         stringSplit = tmp.toString().split(".");
-        result = `조회수 ${stringSplit[0]}조회`;
+        result = `${stringSplit[0]}조`;
     } else if (view / HUNDRED_MILLION >= 1) {
         tmp = view / HUNDRED_MILLION;
         stringSplit = tmp.toString().split(".");
-        result = `조회수 ${stringSplit[0]}억회`;
+        result = `${stringSplit[0]}억`;
     } else if (view / TEN_THOUSAND >= 1) {
         tmp = view / TEN_THOUSAND;
         stringSplit = tmp.toString().split(".");
-        result = `조회수 ${stringSplit[0]}만회`;
+        result = `${stringSplit[0]}만`;
     } else if (view / THOUSAND >= 1) {
         tmp = view / THOUSAND;
         stringSplit = tmp.toString().split(".");
-        result = `조회수 ${stringSplit[0]}.${stringSplit[1][0]}천회`;
+        result = `${stringSplit[0]}.${stringSplit[1][0]}천`;
     } else {
-        result = `조회수 ${view.toString()}회`;
+        result = `${view.toString()}`;
     }
 
     return result;
@@ -68,7 +68,7 @@ const WEEK = 7 * DAY;
 const MONTH = 30 * DAY;
 const YEAR = 12 * MONTH;
 
-export const publishedAtFormatter = (publishedAt) => {
+export const beforeFormatter = (publishedAt) => {
     const uploaded = new Date(publishedAt).getTime();
     const current = new Date().getTime();
     const passed = current - uploaded;
@@ -80,4 +80,16 @@ export const publishedAtFormatter = (publishedAt) => {
     else if (passed >= HOUR) return `${Math.floor(passed / HOUR)}시간 전`;
     else if (passed >= MINUITE) return `${Math.floor(passed / MINUITE)}분 전`;
     else return `${Math.floor(passed / SECOND)}초 전`;
+};
+
+export const numberFormatter = (num) => {
+    return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+};
+
+export const publishedAtFormatter = (publishedAt) => {
+    const uploaded = new Date(publishedAt);
+
+    return `${uploaded.getFullYear()}. ${
+        uploaded.getMonth() + 1
+    }. ${uploaded.getDate()}.`;
 };
