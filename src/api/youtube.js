@@ -47,3 +47,17 @@ export const requestGetChannelPicture = async (channelId) => {
 
     return response;
 };
+
+export const requestGetComments = async (videoId) => {
+    const config = {
+        params: {
+            key: KEY,
+            part: "id,replies,snippet",
+            videoId: videoId,
+        },
+    };
+
+    const response = await axios.get(`${URL}/commentThreads`, config);
+
+    return response;
+};

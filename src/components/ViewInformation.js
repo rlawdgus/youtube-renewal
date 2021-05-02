@@ -15,20 +15,21 @@ const ViewInforamtion = ({ video }) => {
                 </div>
             )}
             <div className="view-information-title">{video.snippet.title}</div>
-            <div className="view-information-statistic">
-                <div className="statistic-view-count">
-                    {numberFormatter(video.statistics.viewCount)}·
+            <div className="view-information-statistic-wrapper">
+                <div className="view-information-statistic">
+                    {`조회수 ${numberFormatter(
+                        video.statistics.viewCount
+                    )}회 · ${publishedAtFormatter(video.snippet.publishedAt)}`}
                 </div>
-                <div className="statistic-published">
-                    {publishedAtFormatter(video.snippet.publishedAt)}
-                </div>
-                <div className="statistic-like">
-                    <Like />
-                    {countFormatter(video.statistics.likeCount)}
-                </div>
-                <div className="statistic-dislike">
-                    <Like />
-                    {countFormatter(video.statistics.dislikeCount)}
+                <div className="view-information-like">
+                    <div className="statistic-like">
+                        <Like />
+                        {countFormatter(video.statistics.likeCount)}
+                    </div>
+                    <div className="statistic-dislike">
+                        <Like />
+                        {countFormatter(video.statistics.dislikeCount)}
+                    </div>
                 </div>
             </div>
         </div>

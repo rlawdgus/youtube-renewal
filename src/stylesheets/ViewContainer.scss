@@ -63,36 +63,48 @@
             font-size: $fs18;
         }
 
-        .view-information-statistic {
+        .view-information-statistic-wrapper {
             display: flex;
             vertical-align: middle;
             align-items: center;
+            flex-flow: wrap;
+            justify-content: space-between;
             color: $font-dark;
             font-size: $fs14;
             height: 40px;
+            border-bottom: 1px solid $border-search;
 
-            .statistic-like {
+            .view-information-like {
                 display: flex;
-                vertical-align: middle;
-                align-items: center;
+                border-bottom: 3px solid $font-dark;
 
-                & > svg {
-                    width: 24px;
-                    height: 24px;
-                    display: inline-block;
+                .statistic-like {
+                    display: flex;
+                    vertical-align: middle;
+                    align-items: center;
+                    padding-right: 6px;
+                    cursor: pointer;
+
+                    & > svg {
+                        width: 24px;
+                        height: 24px;
+                        padding: 6px;
+                    }
                 }
-            }
 
-            .statistic-dislike {
-                display: flex;
-                vertical-align: middle;
-                align-items: center;
+                .statistic-dislike {
+                    display: flex;
+                    vertical-align: middle;
+                    align-items: center;
+                    padding-right: 6px;
+                    cursor: pointer;
 
-                & > svg {
-                    width: 24px;
-                    height: 24px;
-                    transform: rotate(180deg);
-                    display: inline-block;
+                    & > svg {
+                        width: 24px;
+                        height: 24px;
+                        transform: rotate(180deg);
+                        padding: 6px;
+                    }
                 }
             }
         }
