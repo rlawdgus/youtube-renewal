@@ -16,7 +16,7 @@ const VideoListContainer = () => {
 
     return (
         <>
-            {widowSize.width > 1024 ? (
+            {widowSize.width >= 1024 ? (
                 <VideoList videoList={videoList} lastCard={lastCard} />
             ) : (
                 <VideoListSidebar videoList={videoList} lastCard={lastCard} />
