@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 import { useChannelPicture } from "../hooks/useChannelPicture";
 
-import { storeVideoId } from "../store/video";
+import { storeVideo } from "../store/video";
 
 import {
     durationFormatter,
@@ -14,11 +14,16 @@ import {
 import "../stylesheets/Card.scss";
 
 const Card = ({ video, lastCard }) => {
-    const [channelPicture] = useChannelPicture(video.snippet.channelId);
+    const [channelInfo] = useChannelPicture(video.snippet.channelId);
 
     const dispatch = useDispatch();
-    const storing = useCallback((videoId) => {
-        dispatch(storeVideoId(videoId));
+    const storing = useCallback(() => {
+        dispatch(
+            storeVideo({
+                ...video,
+                ...channelInfo,
+            })
+        );
     }, []);
 
     return (
@@ -28,11 +33,8 @@ const Card = ({ video, lastCard }) => {
                 <span>{durationFormatter(video.contentDetails.duration)}</span>
             </div>
             <div className="card-title">
-                <img src={channelPicture} alt="" />
-                <div
-                    className="card-title-wrapper"
-                    onClick={() => storing(video)}
-                >
+                <img src={channelInfo.channelPicture} alt="" />
+                <div className="card-title-wrapper" onClick={() => storing()}>
                     <h2>{video.snippet.title}</h2>
                     <h3>{video.snippet.channelTitle}</h3>
                     <h3>

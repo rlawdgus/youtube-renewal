@@ -3,15 +3,20 @@ import { useCallback, useEffect, useState } from "react";
 import { requestGetChannelPicture } from "../api/youtube";
 
 export const useChannelPicture = (channelId) => {
-    const [channelPicture, setChannelPicture] = useState();
-
+    const [channelInfo, setChannelIinfo] = useState({
+        channelPicture: "",
+        subscriberCount: 0,
+    });
     const getChannelPicture = useCallback(async (channelId) => {
         const result = await requestGetChannelPicture(channelId);
 
         if (result.status === 200) {
-            setChannelPicture(
-                result.data.items[0].snippet.thumbnails.default.url
-            );
+            setChannelIinfo({
+                channelPicture:
+                    result.data.items[0].snippet.thumbnails.default.url,
+                subscriberCount:
+                    result.data.items[0].statistics.subscriberCount,
+            });
         }
     }, []);
 
@@ -19,5 +24,5 @@ export const useChannelPicture = (channelId) => {
         getChannelPicture(channelId);
     }, []);
 
-    return [channelPicture];
+    return [channelInfo];
 };

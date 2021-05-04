@@ -1,14 +1,14 @@
 import { createAction, handleActions } from "redux-actions";
 
-const VIDEO_ID = "video/VIDEO_ID";
+const STORE_VIDEO = "video/STORE_VIDEO";
 
-export const storeVideoId = createAction(VIDEO_ID);
+export const storeVideo = createAction(STORE_VIDEO);
 
 const initialState = {};
 
 const video = handleActions(
     {
-        [VIDEO_ID]: (state, action) => ({
+        [STORE_VIDEO]: (state, action) => ({
             ...state,
             ...action.payload,
         }),

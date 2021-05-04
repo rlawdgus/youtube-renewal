@@ -38,7 +38,7 @@ export const requestGetChannelPicture = async (channelId) => {
     const config = {
         params: {
             key: KEY,
-            part: "snippet",
+            part: "snippet,statistics",
             id: channelId,
         },
     };
