@@ -16,6 +16,7 @@ import "../stylesheets/Card.scss";
 const Card = ({ video, lastCard }) => {
     const [channelInfo] = useChannelPicture(video.snippet.channelId);
 
+    console.log(channelInfo);
     const dispatch = useDispatch();
     const storing = useCallback(() => {
         dispatch(

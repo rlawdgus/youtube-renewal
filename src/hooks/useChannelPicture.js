@@ -5,8 +5,9 @@ import { requestGetChannelPicture } from "../api/youtube";
 export const useChannelPicture = (channelId) => {
     const [channelInfo, setChannelIinfo] = useState({
         channelPicture: "",
-        subscriberCount: 0,
+        subscriberCount: "",
     });
+
     const getChannelPicture = useCallback(async (channelId) => {
         const result = await requestGetChannelPicture(channelId);
 
