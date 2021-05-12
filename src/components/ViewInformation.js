@@ -4,8 +4,6 @@ import Like from "../components/Like";
 
 import { isEmpty } from "../lib/empty";
 
-// import { useChannelPicture } from "../hooks/useChannelPicture";
-
 import {
     numberFormatter,
     countFormatter,
@@ -14,8 +12,6 @@ import {
 
 const ViewInforamtion = () => {
     const video = useSelector((state) => state.video);
-    console.log(video);
-    // const [channelInfo] = useChannelPicture(video.snippet.channelId);
 
     return (
         <>
@@ -48,16 +44,16 @@ const ViewInforamtion = () => {
                             </div>
                         </div>
                     </div>
-                    {/* <div className="view-information-description-wrapper">
-                <img src={channelInfo.channelPicture} alt="" />
-                <div className="view-information-description">
-                    <h2>{video.snippet.channelTitle}</h2>
-                    <h3>{`구독자 ${countFormatter(
-                        channelInfo.subscriberCount
-                    )}명`}</h3>
-                    <i>{video.snippet.description}</i>
-                </div>
-            </div> */}
+                    <div className="view-information-description-wrapper">
+                        <img src={video.channelPicture} alt="" />
+                        <div className="view-information-description">
+                            <h2>{video.snippet.channelTitle}</h2>
+                            <h3>{`구독자 ${countFormatter(
+                                video.subscriberCount
+                            )}명`}</h3>
+                            <i>{video.snippet.description}</i>
+                        </div>
+                    </div>
                 </div>
             )}
         </>
