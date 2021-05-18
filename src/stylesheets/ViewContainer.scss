@@ -8,14 +8,12 @@
     height: 100%;
     background-color: $background-view;
     z-index: $level-view;
-    padding: 20px;
-    padding-bottom: 0;
 
     .view-wrapper {
-        position: relative;
+        position: fixed;
         top: 56px;
-        width: 100%;
-        max-width: 800px;
+        right: 0;
+        width: 640px;
         margin: 0 auto;
 
         & > div {
@@ -36,9 +34,10 @@
 
     .view-information {
         position: relative;
-        top: 56px;
+        top: calc(360px + 56px);
+        height: calc(100% - 360px - 56px);
         max-width: 800px;
-        margin: 20px auto 0;
+        padding: 20px;
         overflow-y: scroll;
 
         &::-webkit-scrollbar {
@@ -140,6 +139,7 @@
                 & > i {
                     font-style: normal;
                     font-size: $fs14;
+                    width: 100%;
                 }
             }
         }
@@ -164,3 +164,10 @@
         padding: 0;
     }
 }
+
+// .view-wrapper {
+//     position: relative;
+//     top: 56px;
+//     width: 100%;
+//     max-width: 800px;
+//     margin: 0 auto;
