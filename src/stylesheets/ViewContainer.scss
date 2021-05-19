@@ -155,6 +155,19 @@
 @media (max-width: 1024px) {
     .view-container {
         width: 375px;
+
+        .view-wrapper {
+            position: relative;
+            top: 56px;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .view-information {
+            top: 56px;
+            height: 100%;
+        }
     }
 }
 
@@ -162,12 +175,10 @@
     .view-container {
         width: 100%;
         padding: 0;
+        margin: 0 auto;
+
+        .view-information {
+            margin: 0 auto;
+        }
     }
 }
-
-// .view-wrapper {
-//     position: relative;
-//     top: 56px;
-//     width: 100%;
-//     max-width: 800px;
-//     margin: 0 auto;
