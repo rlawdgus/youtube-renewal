@@ -136,10 +136,43 @@
                     margin-bottom: 20px;
                 }
 
+                & > input[id="more-detail"] {
+                    display: none;
+                }
+
                 & > i {
                     font-style: normal;
                     font-size: $fs14;
                     width: 100%;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    word-break: break-all;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    line-height: $fs22;
+                }
+
+                & > .more-detail-btn {
+                    display: block;
+                    cursor: pointer;
+                    color: $font-dark;
+                    font-size: $fs14;
+                    margin-top: 8px;
+                }
+
+                #more-detail:checked ~ i {
+                    display: unset;
+                    -webkit-line-clamp: unset;
+                    -webkit-box-orient: unset;
+                }
+
+                #more-detail ~ .more-detail-btn::before {
+                    content: "더보기";
+                }
+
+                #more-detail:checked ~ .more-detail-btn::before {
+                    content: "간략히";
                 }
             }
         }
@@ -179,6 +212,7 @@
 
         .view-information {
             margin: 0 auto;
+            height: unset;
         }
     }
 }

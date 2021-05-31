@@ -48,10 +48,17 @@ const ViewInforamtion = () => {
                         <img src={video.channelPicture} alt="" />
                         <div className="view-information-description">
                             <h2>{video.snippet.channelTitle}</h2>
+
                             <h3>{`구독자 ${countFormatter(
                                 video.subscriberCount
                             )}명`}</h3>
+
+                            <input type="checkbox" id="more-detail" />
                             <i>{video.snippet.description}</i>
+                            <label
+                                htmlFor="more-detail"
+                                className="more-detail-btn"
+                            />
                         </div>
                     </div>
                 </div>
