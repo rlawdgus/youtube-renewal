@@ -207,12 +207,13 @@
 @media (max-width: 1023px) {
     .view-container {
         width: 100%;
-        padding: 0;
         margin: 0 auto;
 
         .view-information {
-            margin: 0 auto;
-            height: unset;
+            height: calc(100% - 56px - 210px);
+            padding: 20px 10px;
+            left: 50%;
+            transform: translateX(-50%);
         }
     }
 }
